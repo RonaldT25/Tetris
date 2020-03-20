@@ -52,7 +52,7 @@ public class Board extends JPanel implements KeyListener {
 	private float h = (float) 0.53358333;
 	private float s = (float) 0.5697;
 	private float b = (float) 0.9569;
-
+       //refactoring Long class
 	public Board() {
 		setBackground(Color.getHSBColor(h, s, b));
 		try {
@@ -133,7 +133,7 @@ public class Board extends JPanel implements KeyListener {
 		}
 		currentPiece.update();
 	}
-
+          //LONG METHOD
 	public void paint(Graphics g) {
 		super.paint(g);
 		// g.drawImage(blocks, 0, 0, null); //ini tes doang
@@ -197,8 +197,9 @@ public class Board extends JPanel implements KeyListener {
 				piece[nextIDX].getColor());
 
 	}
-
+      // LONG METHOD BLOATERS
 	public void getPiece() {
+                    //OBJECT ORIENTED ABUSER SWTICH STATEMENT
 		if (shiftPressed && !shifted) {
 			shifted = true;
 			curIDX = currentPiece.getColor() - 1;
@@ -245,19 +246,9 @@ public class Board extends JPanel implements KeyListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			currentPiece.rotate();
-		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			currentPiece.speedDown();
-		}
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			currentPiece.setdX(-BLOCKSIZE);
-		}
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			currentPiece.setdX(BLOCKSIZE);
-		}
+       //Refactoring Long method dan Data clumps
+	public void keyPressed(KeyEvent e){
+	
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
 			if (!shifted) {
 				shiftPressed = true;
@@ -276,6 +267,22 @@ public class Board extends JPanel implements KeyListener {
 		}
 
 	}
+        Public void arrowpressed(KeyEvent e){
+
+	if (e.getKeyCode() == KeyEvent.VK_UP) {
+			currentPiece.rotate();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			currentPiece.speedDown();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			currentPiece.setdX(-BLOCKSIZE);
+		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			currentPiece.setdX(BLOCKSIZE);
+		}}
+
+          }
 
 	@Override
 	public void keyReleased(KeyEvent e) {
